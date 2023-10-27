@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>CRUDS</title>
+</head>
+<body>
+    <div class="container">
+        <div class="">
+            <label class="my-2" for="name"> ProudctName:</label>
+            <input class="form-control w-100" type="text" placeholder="Product Name" name="name" id="name">
+            <label class="my-2" for="price"> ProudctPrice:</label>
+            <input class="form-control w-100" type="number" placeholder="ProudctPrice" name="price" id="price">
+            <label class="my-2" for="category"> ProudctCategory:</label>
+            <input class="form-control w-100" type="text" placeholder="ProudctCategory" name="category" id="category">
+            <label class="my-2" for="desc"> ProudctDesc:</label>
+            <textarea class="form-control w-100" type="text" placeholder="ProudctDesc" name="desc" id="desc"></textarea>
+            <button onclick="addProudct()" class="btn btn-primary d-block w-100 mt-3" id="add">addProudct</button>
+            <button onclick="updateProduct()" class="btn btn-warning d-none w-100 mt-3" id="update">updateProudct</button>
+        </div>
+        <div>
+            <input type="search" oninput="getSearch(this.value)" class="form-control w-50 my-3 mx-auto" placeholder="Search Button" id="search">
+            <table class="w-75 mx-auto mt-4">
+                <thead>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Desc</th>
+                  <th>Update</th>
+                  <th>Delete</th>
+                </thead>
+                <tbody  id="data">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
