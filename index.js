@@ -31,17 +31,19 @@ function clear() {
     inputdesc.value = ''
 }
 function displayProudcts(arr) {
-    var prod = ``
-    for (var i = 0; i < arr.length; i++) {
-        prod += `<tr class='my-2'><td>${arr[i].name}</td>
+    if (arr.length > 0) {
+        var prod = ``
+        for (var i = 0; i < arr.length; i++) {
+            prod += `<tr class='my-2'><td>${arr[i].name}</td>
         <td>${arr[i].price}</td>
         <td>${arr[i].category}</td>
         <td>${arr[i].desc}</td>
         <td><button onclick="updateTable(${i})" class="btn btn-warning ">update</button></td>
         <td><button onclick="deleteProduct(${i});" class="btn btn-danger ">delete</button></td></tr>
         `
+        }
+        document.getElementById('data').innerHTML = prod
     }
-    document.getElementById('data').innerHTML = prod
 }
 displayProudcts(allProudcts)
 
@@ -52,16 +54,15 @@ function deleteProduct(ind) {
 }
 
 function getSearch(char) {
-    if (allProudcts.length > 0) {
-        var newProd = []
-        for (var i = 0; i < allProudcts.length; i++) {
-            if (allProudcts[i].name.toLowerCase().includes(char.toLowerCase())) {
-                newProd.push(allProudcts[i])
-            }
+    var newProd = []
+    for (var i = 0; i < allProudcts.length; i++) {
+        if (allProudcts[i].name.toLowerCase().includes(char.toLowerCase())) {
+            newProd.push(allProudcts[i])
         }
-        // console.log(newProd);
-        displayProudcts(newProd)
     }
+    // console.log(newProd);
+    displayProudcts(newProd)
+
 }
 
 function updateTable(ind) {
