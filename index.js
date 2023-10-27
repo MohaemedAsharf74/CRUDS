@@ -7,10 +7,13 @@ var searchInput = document.getElementById('search')
 
 getDatafrom = JSON.parse(localStorage.getItem('proudcts'))
 var allProudcts = []
-allProudcts = getDatafrom
+if (getDatafrom != null) {
+    allProudcts = getDatafrom
+}
 console.log(allProudcts);
 var updateIndex
 function addProudct() {
+
     var newProudct = {
         name: inputName.value,
         price: inputPrice.value,
@@ -31,7 +34,7 @@ function clear() {
     inputdesc.value = ''
 }
 function displayProudcts(arr) {
-    if (arr.length > 0) {
+    if (allProudcts.length > 0) {
         var prod = ``
         for (var i = 0; i < arr.length; i++) {
             prod += `<tr class='my-2'><td>${arr[i].name}</td>
@@ -44,8 +47,10 @@ function displayProudcts(arr) {
         }
         document.getElementById('data').innerHTML = prod
     }
+    else {
+        document.getElementById('data').innerHTML = ''
+    }
 }
-displayProudcts(allProudcts)
 
 function deleteProduct(ind) {
     allProudcts.splice(ind, 1)
@@ -95,3 +100,4 @@ function updateProduct() {
     displayProudcts(allProudcts)
     localStorage.setItem('proudcts', JSON.stringify(allProudcts))
 }
+displayProudcts(allProudcts)
