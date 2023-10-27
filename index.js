@@ -52,14 +52,16 @@ function deleteProduct(ind) {
 }
 
 function getSearch(char) {
-    var newProd = []
-    for (var i = 0; i < allProudcts.length; i++) {
-        if (allProudcts[i].name.toLowerCase().includes(char.toLowerCase())) {
-            newProd.push(allProudcts[i])
+    if (allProudcts.length > 0) {
+        var newProd = []
+        for (var i = 0; i < allProudcts.length; i++) {
+            if (allProudcts[i].name.toLowerCase().includes(char.toLowerCase())) {
+                newProd.push(allProudcts[i])
+            }
         }
+        // console.log(newProd);
+        displayProudcts(newProd)
     }
-    // console.log(newProd);
-    displayProudcts(newProd)
 }
 
 function updateTable(ind) {
